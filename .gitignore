@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+apps/web/.next/
+
+# Claude
+.claude/
+CLAUDE.md
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Packed extensions
+*.crx
+*.xpi
+*.zip
+web-ext-artifacts/
+
+# Vite
+*.local
+
+# TypeScript
+*.tsbuildinfo

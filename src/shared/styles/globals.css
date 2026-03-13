@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cream background, coral-red accent, warm charcoal text */
+    --background: 45 25% 99%;
+    --foreground: 15 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+    --primary: 9 85% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 20% 95%;
+    --secondary-foreground: 0 0% 12%;
+    --muted: 45 15% 94%;
+    --muted-foreground: 15 8% 38%;
+    --accent: 45 20% 94%;
+    --accent-foreground: 0 0% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --border: 45 15% 88%;
+    --input: 45 15% 90%;
+    --ring: 9 85% 58%;
+    --radius: 0.75rem;
+    /* Shadow tokens */
+    --shadow-card: 0 4px 24px -4px hsl(var(--primary) / 0.08);
+    --shadow-card-hover: 0 8px 32px -4px hsl(var(--primary) / 0.12);
+    --shadow-primary: 0 2px 12px -2px hsl(var(--primary) / 0.4);
+    --shadow-primary-hover: 0 4px 20px -2px hsl(var(--primary) / 0.5);
+    --shadow-success-glow: 0 0 6px hsl(var(--success) / 0.5);
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 9 85% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 50%;
+    --success-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 18%;
+    --ring: 9 85% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* CSS-based entrance animations (replaces framer-motion for performance) */
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes animate-in-blur {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes animate-in-slide {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  opacity: 0;
+  animation: animate-in 0.5s ease-out forwards;
+}
+
+.animate-in-blur {
+  opacity: 0;
+  animation: animate-in-blur 0.6s ease-out forwards;
+}
+
+.animate-in-slide {
+  opacity: 0;
+  animation: animate-in-slide 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-in-delay-0 { animation-delay: 0ms; }
+.animate-in-delay-100 { animation-delay: 100ms; }
+.animate-in-delay-200 { animation-delay: 200ms; }
+.animate-in-delay-300 { animation-delay: 300ms; }
+.animate-in-delay-400 { animation-delay: 400ms; }
+.animate-in-delay-500 { animation-delay: 500ms; }
+
+/* Focus ring utility - use on interactive elements */
+.focus-ring {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+/* Respect reduced motion preference (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
