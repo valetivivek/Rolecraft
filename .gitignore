@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+.pnpm-store/
 
 # Build output
 dist/
@@ -8,6 +9,7 @@ apps/web/.next/
 # Claude
 .claude/
 CLAUDE.md
+
 # IDE
 .vscode/
 .idea/
@@ -27,6 +29,12 @@ Thumbs.db
 # Test coverage
 coverage/
 
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
 # Logs
 *.log
 npm-debug.log*
@@ -42,3 +50,9 @@ web-ext-artifacts/
 
 # TypeScript
 *.tsbuildinfo
+
+# Supabase (local dev)
+.supabase/
+
+# Vercel
+.vercel/
